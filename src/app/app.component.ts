@@ -42,35 +42,15 @@ export class AppComponent {
   }
 
   assetsIcons() {
-    // this.iconRegistry.addSvgIcon('facebook', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/facebook.svg'));
-    this.iconRegistry.addSvgIcon('twitter', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/twitter.svg'));
-    // this.iconRegistry.addSvgIcon('instagram', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/instagram.svg'));
-    this.iconRegistry.addSvgIcon('whatsapp', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/whatsapp.svg'));
-    this.iconRegistry.addSvgIcon('whatsappicon', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/whatsapp_app.png'));
+    // this.iconRegistry.addSvgIcon('facebook', this.sanitizer.bypassSecurityTrustResourceUrl('http://localhost:4000.com/assets/facebook.svg'));
+    // this.iconRegistry.addSvgIcon('twitter', this.sanitizer.bypassSecurityTrustResourceUrl('http://localhost:4000.com/assets/twitter.svg'));
+    // this.iconRegistry.addSvgIcon('instagram', this.sanitizer.bypassSecurityTrustResourceUrl('http://localhost:4000.com/assets/instagram.svg'));
+    // this.iconRegistry.addSvgIcon('whatsapp', this.sanitizer.bypassSecurityTrustResourceUrl('http://localhost:4000.com/assets/whatsapp.svg'));
+    // this.iconRegistry.addSvgIcon('whatsappicon', this.sanitizer.bypassSecurityTrustResourceUrl('http://localhost:4000.com/assets/whatsapp_app.png'));
   }
 
   sendMessage(social: IconSocialMedia) {
     window.open(social.url, '_blank');
-    // switch (social.route) {
-    //   case 'whatsapp':
-    //     window.open('https://wa.me/918722443194', '_blank');
-    //     break;
-    //   case 'messager':
-    //     window.open('https://m.me/willntrix', '_blank');
-    //     break;
-    //   case 'instagram':
-    //     window.open('https://www.instagram.com/direct/t/340282366841710300949128117640330200706', '_blank');
-    //     break;
-    //   case 'email':
-    //     window.open('mailto:shrishailr.willntrix@gmail.com', '_blank');
-    //     break;
-    //   case 'sms':
-    //     window.open('sms:+918722443194', '_blank');
-    //     break;
-    //   case 'dial':
-    //     window.open('tel:8722443194', '_blank');
-    //     break;
-    // }
   }
   get socialIcon(): IconSocialMedia[] {
     return iconSocialMedia;

@@ -114,8 +114,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     // this.init();
     this.route.fragment.subscribe(f => {
-      const element = document.querySelector('#' + f);
-      if (element) { element.scrollIntoView(); }
+      // const element = document.querySelector('#' + f);
+      // if (element) { element.scrollIntoView(); }
     });
   }
 
