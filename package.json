@@ -3,14 +3,12 @@
   "version": "5.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev:ssr": "ng run willntrix:serve-ssr",
-    "serve:ssr": "node dist/willntrix/server/main.js",
-    "build:ssr": "ng build --prod && ng run willntrix:server:production",
+    "start": "node dist/willntrix/server/main.js",
+    "build": "ng build --prod && ng run willntrix:server:production",
     "prerender": "ng run willntrix:prerender"
   },
   "private": true,
