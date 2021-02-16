@@ -1,0 +1,28 @@
+<mat-card class="card-demo">
+  <mat-card-title class="contactusheader">FAQ's</mat-card-title>
+  <mat-card-content>
+    <div class="containerX">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlexclass="coloredContainerX box">
+        <div fxFlex class="faq-div">
+          <div *ngFor="let data of faqs">
+            <div class="que"> 
+               {{data.no}}&nbsp;{{data.que}}
+            </div>
+            <div class="ans">
+              {{data.ans}}
+            </div>
+          </div>
+          <div class="happy">
+            <h4 class="HappyLearning">
+                #HappyLearning
+            </h4>
+            <img class="smily" src="assets/smileLogo.png"/>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-footer style="width:95%">
+  </mat-card-footer>
+</mat-card>

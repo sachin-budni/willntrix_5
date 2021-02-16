@@ -1,0 +1,166 @@
+<div class="blog-main-div" *ngIf="$blogs && $blogs.length !== 0; else prograss">
+  <div class="data-flex">
+    <mat-card *ngFor="let item of $blogs">
+      <img
+        class="mat-images"
+        mat-card-image
+        [src]="item.titleImage"
+        [alt]="item.title"
+      />
+      <mat-card-header class="mat-card-header-data">
+        <mat-card-subtitle>
+          <div class="sub-title">
+            <span>
+              {{ item.authorName }}
+            </span>
+            <span style="flex: 1 1 auto"></span>
+            <div class="social">
+              <a
+                (click)="
+                  shareBlog(
+                    'https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=',
+                    item.title
+                  )
+                "
+              >
+                <svg class="icons" viewBox="0 0 24 24">
+                  <path
+                    fill="rgb(255, 100, 132)"
+                    d="M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3M18,5H15.5A3.5,3.5 0 0,0 12,8.5V11H10V14H12V21H15V14H18V11H15V9A1,1 0 0,1 16,8H18V5Z"
+                  />
+                </svg>
+              </a>
+              <a
+                (click)="
+                  shareBlog('https://twitter.com/share?url=', item.title)
+                "
+              >
+                <svg class="icons" viewBox="0 0 24 24">
+                  <path
+                    fill="rgb(255, 100, 132)"
+                    d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"
+                  />
+                </svg>
+              </a>
+              <a (click)="shareBlog('https://wa.me/?text=', item.title)">
+                <svg
+                  class="icons"
+                  width="18px"
+                  height="18px"
+                  viewBox="0 0 512.000000 512.000000"
+                >
+                  <g
+                    transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                    fill="rgb(255, 100, 132)"
+                    stroke="none"
+                  >
+                    <path
+                      d="M2260 4993 c-101 -11 -283 -47 -389 -78 -875 -252 -1513 -992 -1636 -1899 -20 -144 -22 -430 -5 -571 43 -362 168 -701 366 -997 l72 -108 -155 -616 c-84 -339 -152 -618 -150 -621 3 -2 288 107 633 242 l629 246 120 -40 c276 -92 473 -125 760 -125 437 0 818 105 1185 326 300 180 578 454 760 747 424 683 461 1538 98 2254 -341 671 -996 1135 -1741 1232 -108 14 -446 19 -547 8z m535 -118 c235 -31 507 -117 715 -227 629 -332 1050 -926 1156 -1633 20 -136 23 -432 5 -565 -66 -493 -280 -930 -626 -1275 -591 -592 -1455 -794 -2235 -524 -80 28 -154 52 -165 55 -12 3 -238 -80 -570 -209 -303 -119 -551 -214 -553 -212 -1 1 58 246 133 544 l135 543 -28 36 c-123 155 -257 412 -326 623 -77 234 -108 432 -108 684 0 347 68 642 223 961 98 203 226 383 392 553 366 374 805 590 1332 654 87 11 415 6 520 -8z"
+                    />
+                    <path
+                      d="M2330 4579 c-861 -77 -1560 -743 -1686 -1609 -25 -172 -15 -481 20 -646 62 -293 201 -584 388 -813 l44 -54 -98 -345 c-54 -190 -96 -347 -95 -349 2 -1 164 61 361 138 l358 140 112 -49 c256 -114 482 -161 770 -162 308 0 556 56 831 190 882 429 1283 1481 913 2395 -205 505 -633 907 -1146 1075 -256 83 -506 112 -772 89z m-305 -869 l41 0 58 -162 c33 -90 79 -210 104 -268 67 -158 67 -153 -16 -246 -38 -44 -86 -95 -106 -113 -23 -22 -36 -44 -36 -60 0 -65 239 -357 418 -512 133 -115 268 -209 300 -209 16 0 57 31 123 92 54 51 109 98 121 105 30 17 63 9 183 -42 55 -23 173 -68 262 -101 l161 -59 7 -122 7 -122 -36 -49 c-58 -80 -163 -172 -234 -205 -64 -30 -64 -30 -200 -24 -307 13 -601 142 -930 406 -453 366 -727 863 -711 1292 3 77 9 104 31 149 34 69 115 160 193 218 l60 44 80 -6 c44 -3 98 -6 120 -6z"
+                    />
+                  </g>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </mat-card-subtitle>
+        <mat-card-title (click)='getBlog(item.title)'>{{
+          item.title
+        }}</mat-card-title>
+      </mat-card-header>
+    </mat-card>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="w-100 plr-30">
+      <button mat-button (click)="prevPage()" [disabled]="prev.length === 0">
+        <mat-icon>chevron_left</mat-icon> Prev
+      </button>
+      <button mat-button (click)="nextPage()" [disabled]="!next">
+        Next <mat-icon>chevron_right</mat-icon>
+      </button>
+  </div>
+</div>
+
+<ng-template #prograss>
+  <div fxLayout="row" fxLayoutAlign="center center" class="prograss">
+    <svg width="51px" height="50px" viewBox="0 0 51 50">
+      <rect
+        y="0"
+        width="13"
+        height="50"
+        rx="10"
+        ry="10"
+        fill="#FF6484"
+        class="rect-shadow"
+      >
+        <animate
+          attributeName="height"
+          values="50;10;50"
+          begin="0s"
+          dur="1s"
+          repeatCount="indefinite"
+        />
+        <animate
+          attributeName="y"
+          values="0;20;0"
+          begin="0s"
+          dur="1s"
+          repeatCount="indefinite"
+        />
+      </rect>
+
+      <rect
+        x="19"
+        y="0"
+        width="13"
+        height="50"
+        rx="10"
+        ry="10"
+        fill="#3F3D56"
+        class="rect-shadow"
+      >
+        <animate
+          attributeName="height"
+          values="50;10;50"
+          begin="0.2s"
+          dur="1s"
+          repeatCount="indefinite"
+        />
+        <animate
+          attributeName="y"
+          values="0;20;0"
+          begin="0.2s"
+          dur="1s"
+          repeatCount="indefinite"
+        />
+      </rect>
+
+      <rect
+        x="38"
+        y="0"
+        width="13"
+        height="50"
+        rx="10"
+        ry="10"
+        fill="#06ffcb"
+        class="rect-shadow"
+      >
+        <animate
+          attributeName="height"
+          values="50;10;50"
+          begin="0.4s"
+          dur="1s"
+          repeatCount="indefinite"
+        />
+        <animate
+          attributeName="y"
+          values="0;20;0"
+          begin="0.4s"
+          dur="1s"
+          repeatCount="indefinite"
+        />
+      </rect>
+    </svg>
+  </div>
+</ng-template>

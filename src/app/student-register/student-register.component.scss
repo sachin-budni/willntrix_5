@@ -1,0 +1,139 @@
+.form-data-middle{
+    width: 100%;
+    height: 100%;
+}
+.form-body{
+    width: 100%;
+    height: 100%;
+    max-width: 1000px;
+    margin: 0px auto;
+}
+.header-body{
+    width: 100%;
+    height: 100px;
+}
+.header-name{
+    font-size: 30px;
+    margin-top:10px;
+    font-weight: bold; 
+    text-align: center;
+    font-family: 'Poppins',Regular;
+}
+.last-update{
+    font-size: 11px;
+}
+
+.form-body-content{
+    display: flex;
+    width: 100%;
+    height: calc(100% - 20px); 
+}
+.form-body-content-space{
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.search-body{
+    float: right;
+    margin-top: -0px;
+}
+
+.search-input{
+    width: 200px;
+}
+.search-button{
+    width: 200px;
+}
+.container {
+    padding: 10px;
+    height: calc(100% - 30px);
+    width: 80%;
+  }
+  
+  .form {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .button {
+    width: 150px;
+  }
+  .example-icon {
+    padding: 0 14px;
+    cursor: pointer;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+.Date{
+    width: calc(30% - 10px);
+    padding: 5px;
+}
+
+.ProjectCourse{
+    width: calc(70% - 10px);
+    padding: 5px;
+}
+
+.CandidateName{
+    width: calc(70% - 10px);
+    padding: 5px;
+}
+
+.Gender{
+    width: calc(30% - 10px);
+    padding: 5px;
+}
+
+.mobileNo{
+    width: 40%;
+    padding: 0% 5%;
+}
+
+.email{
+    width: calc(70% - 10px);
+    padding: 5px;
+}
+
+.joiningdate{
+    width: calc(30% - 10px);
+    padding: 5px;
+}
+.address{
+    width: calc(75% - 10px);
+    padding: 5px;
+}
+.education{
+    width: calc(65% - 10px);
+    padding: 5px;
+}
+
+.work{
+    width: 30%;
+    padding: 0% 5%;
+}
+
+.company{
+    width: 40%;
+    padding: 0% 5%;
+}
+
+.refferedBy{
+    width: calc(70% - 10px);
+    padding: 5px;
+}
+
+.careerObject{
+    width: calc(65% - 10px);
+    padding: 5px;
+}
+.reminder{
+    width: calc(65% - 10px);
+    padding: 5px;
+}
+textarea{
+    resize: none !important;
+}

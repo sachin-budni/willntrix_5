@@ -1,0 +1,21 @@
+<div>
+    <mat-toolbar>Discount</mat-toolbar>
+    
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+        <mat-form-field class="form-element" >
+            <input matInput placeholder="Enter Valid Mobile Number" formControlName="mobileNumber">
+            <mat-error *ngIf="!formGroup.controls['mobileNumber'].valid && formGroup.controls['mobileNumber'].touched">
+                Enter valid Dicount code
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-element" >
+            <input matInput placeholder="Coupon Code" formControlName="dicountCode">
+            <mat-error *ngIf="!formGroup.controls['dicountCode'].valid && formGroup.controls['dicountCode'].touched">
+                Enter valid Dicount code
+            </mat-error>
+        </mat-form-field>
+        <div fxLayout="row" fxLayoutAlign="end center">
+            <button mat-raised-button type="submit">Submit</button>
+        </div>
+    </form>
+</div>

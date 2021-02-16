@@ -1,0 +1,142 @@
+@import '../theme.scss';
+.example-container {
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .example-toolbar{
+    height: 45px;
+  }
+  .example-app-log{
+    width: 140px;
+    cursor: pointer;
+  }
+  .prograssBarDiv{
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .example-sidenav-container {
+    flex: 1;
+    top: 56px;
+  }
+
+  .example-is-mobile .example-sidenav-container {
+    flex: 1 0 auto;
+  }
+  .hiddingSideNav{
+    display: none;
+  }
+  .extraspace{
+    flex: 1 1 auto;
+  }
+
+  mat-nav-list a{
+    width: 200px;
+  }
+
+.spinnerdiv{
+  width: 100%;
+  margin: 0%;
+  text-align: center;
+  padding: 15% 0% 0% 0%;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+}
+.spin{
+  display: inline-block;
+  margin-right: 25px;
+}
+.subscript{
+  font-size: 12px;
+}
+.mainheads{
+  height: 30px;
+}
+
+.path{
+  position: relative;
+  width:100%;
+  display: flex;
+}
+.path span{
+  flex: 1 1 auto;
+}
+.example-icon {
+  padding: 0 14px;
+}
+
+.toolbar-background{
+  background: var(--white-color-bk-font) !important;
+  font-family: 'Poppins', Regular !important;
+  width: 100%;
+  position: fixed;
+  z-index: 3;
+}
+.main-toolbar{
+  button{
+      font-family: 'Poppins',Regular;
+  }
+}
+#main{
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+}
+.active{
+    background-color: var(--router-background-color-bk);
+    color: var(--white-color-bk-font);
+    box-shadow: $shadow-to-all;
+}
+
+.header-button button{
+  padding: 0px 20px;
+  margin: 0px 10px;
+}
+
+.nav{
+  text-decoration: none;
+  color: inherit;
+}
+.share-chat-main-div{
+  width: 200px;
+  position: fixed;
+  bottom: 0;
+  z-index: 3;
+  cursor: pointer;
+  border-radius: 25%;
+  img{
+    width: 50px;
+  }
+}
+.card-button{
+  margin: 10px 10px 10px 40px;
+  width: 200px;
+  border-radius: 15px;
+  box-shadow: 0px 3px 6px #00000029;
+}
+.message{
+  margin-left: 10px;
+  border-radius: 15px;
+  max-width: 180px;
+  font-family: "Nunito",Regular;
+  color: #5F5F5F;
+  box-shadow: 0px 3px 6px #00000029;
+}
+.messager-menu{
+  box-shadow: 0px 3px 6px #00000029;
+}
+.message-man{
+  width: 60px;
+  margin-left: 20px;
+}

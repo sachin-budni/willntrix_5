@@ -1,0 +1,27 @@
+
+img {
+    margin-left: -15%;
+    margin-top: -10%;
+    position: absolute;
+    z-index: -1;
+    width: 65%;
+}
+.sub-head {
+    font-size: 25px;
+    margin: 1em 2em;
+}
+.head-button {
+    max-width: 350px;
+    button {
+        background-color: var(--content-background-color-bk) !important;
+        color: var(--white-color-bk-font);
+        margin: 10px;
+    }
+}
+
+@media(max-width:500px){
+    .sub-head{
+        font-size: 1em;
+        margin: 0px;
+    }
+}

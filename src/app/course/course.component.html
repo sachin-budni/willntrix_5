@@ -1,0 +1,68 @@
+<div class="main-div" fxLayout="column" *ngIf="couserDetails | async as courses">
+  <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+    <div fxFlex="100%" fxLayout="row" fxLayoutAlign="center center" class="subject">
+      {{ courses.name }}
+    </div>
+    <div fxFlex></div>
+    <button mat-button (click)="demoClass()" class="btn">Free Demo <mat-icon>arrow_drop_down</mat-icon></button>
+    <button mat-button class="btn"><a [href]="URL" class="linkSyllabus" target="_blank"
+        fxLayout="row" fxLayoutAlign="center center">Download <mat-icon>arrow_drop_down</mat-icon></a></button>
+  </div>
+  <div style="padding:20px 0px"></div>
+  <p class="content">
+    Willntrix was established in 2016 and running successfully since then. It is an expert training institute in
+    Advanced Excel, VBA, SQL, Data Analytics and Data Science. We have a number of effective trainers and we provide a
+    great deal of flexibility to learners. We have framed our syllabus to match with the real-world requirements for
+    both the beginner level and the advanced level.
+  </p>
+  <p class="content">
+    Our unique training delivery methods helps students or professionals to understand the core concepts of any
+    technology and crack the interview, this made a big list of successful candidates who are placed in esteem
+    organisations like Infosys, Dell, Oracle etc.
+  </p>
+  <div style="padding: 40px 0px"></div>
+  <div fxLayout="row" fxLayoutAlign="space-around center" fxLayout.md="column" fxLayout.sm="column" fxLayout.xs="column">
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+      <img style="width:200px"
+        [src]="courses.icon"
+        alt="Course Image">
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center" style="padding: 0px 5px">
+      <app-apply-enquiry style="max-width: 500px;"></app-apply-enquiry>
+    </div>
+  </div>
+</div>
+<div class="content-div main-div">
+  <div class="header">
+    <p>Course Content</p>
+  </div>
+  <div>
+    <p class="content">
+      {{ desciption }}
+    </p>
+  </div>
+  <div>
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+
+      <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding matTreeNodePaddingIndent="40" class="children">
+        <button mat-icon-button disabled></button>
+        <span style="color: var(--content-font-color)">
+          {{node.name}}
+        </span>
+      </mat-tree-node>
+
+      <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding matTreeNodePaddingIndent="40">
+        <button mat-icon-button matTreeNodeToggle
+            [attr.aria-label]="'Toggle ' + node.name">
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+          </mat-icon>
+        </button>
+        <span [ngStyle]="{'font-weight':treeControl.isExpanded(node)?'bold':'100'}" class="children" matTreeNodeToggle>
+          {{node.name}}
+        </span>
+      </mat-tree-node>
+
+    </mat-tree>
+  </div>
+</div>

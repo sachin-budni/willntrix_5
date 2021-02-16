@@ -1,0 +1,52 @@
+.contactusheader{
+    text-align: center;
+    font-size: 30px;
+}
+
+p{
+    width: 200px;
+    background: blue;
+    margin: 100px auto;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.container {
+    height: 30px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .scrolling-text {
+    position: absolute;
+    white-space: nowrap;
+  }
+  .headerContent{
+    font-size: 18px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Poppins',Regular;
+  }
+
+  .form-element{
+    width:calc(100% - 20px);;
+    padding: 10px;
+  }
+  textarea{
+    height: 100px;
+    resize: none !important;
+  }
+  form{
+    max-width: 600px;
+    min-width: 200px;
+    margin: 0 auto;
+  }
+  .contact-us-image{
+    max-width: 800px;
+    width: 100%;
+    margin: 0px auto;
+  }

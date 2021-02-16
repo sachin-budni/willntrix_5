@@ -1,0 +1,116 @@
+<div class="form-data-middle">
+  <div class="form-body">
+
+    <!-- header -->
+    <div class="header-body">
+      <div class="header-name">
+        <div class="header-data">
+          <span class="data-name">Employability Skills / Interview Skills - Interactive Webinar by Priya Aski from 16th Sep 2020</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- form data -->
+    <div class="form-body-content">
+      <div class="form-body-content-space">
+
+        <div class="container">
+          <form [formGroup]="workshopFormGroup" (ngSubmit)="onSubmit(workshopFormGroup.value)" class="form">
+            
+              <mat-form-field class="Name">
+                  <input matInput placeholder="Name" name="Name" formControlName="Name" required>
+                  <mat-error *ngIf="!workshopFormGroup.controls['Name'].valid && workshopFormGroup.controls['Name'].touched">
+                      {{ requiredAlert }}
+                  </mat-error>
+              </mat-form-field>
+      
+              <mat-form-field class="Gender">
+                <mat-select placeholder="Gender *" formControlName="Gender">
+                  <mat-option *ngFor="let g of gender" [value]="g">
+                      {{g}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="!workshopFormGroup.controls['Gender'].valid && workshopFormGroup.controls['Gender'].touched">
+                    {{ requiredAlert }}
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="Contact-No">
+                  <input matInput placeholder="Contact No" maxlength="10" name="ContactNo" formControlName="ContactNo" required>  
+                  <mat-error *ngIf="!workshopFormGroup.controls['ContactNo'].valid && workshopFormGroup.controls['ContactNo'].touched">
+                      {{ phoneAlert }}
+                  </mat-error>
+              </mat-form-field>
+              
+              <mat-form-field class="email">
+                <input matInput placeholder="Mail Id" formControlName="email" name="email" required>
+                <mat-error *ngIf="!workshopFormGroup.controls['email'].valid && workshopFormGroup.controls['email'].touched">
+                  {{ getErrorEmail() }}
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="Location">
+                  <textarea matInput placeholder="Location" name="Location" formControlName="Location" required></textarea>
+                  <mat-error *ngIf="!workshopFormGroup.controls['Location'].valid && workshopFormGroup.controls['Location'].touched">
+                      {{ requiredAlert }}
+                  </mat-error>
+              </mat-form-field>
+             
+              <mat-form-field class="Native">
+                  <input matInput placeholder="Native" name="Native" formControlName="Native" required>  
+                  <mat-error *ngIf="!workshopFormGroup.controls['Native'].valid && workshopFormGroup.controls['Native'].touched">
+                      {{ requiredAlert }}
+                  </mat-error>
+              </mat-form-field>
+              <br/>
+              <mat-form-field class="work">
+                  <mat-select placeholder="Work *" formControlName="work" (selectionChange)="workData($event)">
+                    <mat-option *ngFor="let w of work" [value]="w">
+                        {{w}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="!workshopFormGroup.controls['work'].valid && workshopFormGroup.controls['work'].touched">
+                    {{ requiredAlert }}
+                </mat-error>
+              </mat-form-field>
+              
+              <mat-form-field class="work" *ngIf="workFieldFlag">
+                  <mat-select placeholder="Year" name="year" formControlName="year" required >
+                    <mat-option *ngFor="let y of year" [value]="y">
+                      {{y}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="!workshopFormGroup.controls['year'].valid && workshopFormGroup.controls['year'].touched">
+                      {{ requiredAlert }}
+                  </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="work" *ngIf="workFieldFlag">
+                  <input matInput placeholder="Company" name="company" formControlName="company">  
+              </mat-form-field>
+              
+              <mat-form-field class="work" *ngIf="workFieldFlag">
+                  <input matInput placeholder="Designation" name="designation" formControlName="designation" required>  
+                  <mat-error *ngIf="!workshopFormGroup.controls['designation'].valid && workshopFormGroup.controls['designation'].touched">
+                      {{ requiredAlert }}
+                  </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="worthDate">
+                  <input matInput readonly [matDatepicker]="picker1" placeholder="Workshop or Webiner Date" formControlName="WorthyWeekendDate" required>
+                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1 disabled></mat-datepicker>
+              </mat-form-field>
+
+          <div class="form-element">
+              <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!workshopFormGroup.valid">Submit Form</button>
+          </div>
+      
+          </form>
+      </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

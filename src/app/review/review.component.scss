@@ -1,0 +1,62 @@
+.main-div {
+  max-width: 800px;
+  width: 100%;
+  margin: 20px auto;
+}
+.div-card {
+  margin: 20px 0px;
+}
+.img-div{
+  width: 100px;
+  height: 100px;
+}
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+h4,
+p {
+  margin: 5px 10px;
+  font-family: 'Muli', ;
+}
+.video-link {
+  max-width: 600px;
+  width: 100%;
+}
+
+.desc {
+  word-break: break-word;
+  padding: 10px 0px;
+}
+.iframe-video {
+  border: none;
+  width: calc(100% - 40px);
+  height: 350px;
+  margin: 20px;
+}
+.design-company{
+  max-width: 450px;
+}
+
+.clips{
+  font-size: 12px;
+  border: 1px solid #ababab;
+  padding: 6px 10px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  margin: 10px 5px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  font-weight: 600;
+  color: #6f6f6f;
+}
+
+.clips-div{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.facebook-frame{
+  margin: 10px;
+}

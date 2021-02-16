@@ -1,0 +1,39 @@
+.fill-remaining-space {
+    flex: 1 1 auto;
+  }
+  .container {
+    padding: 10px;
+    overflow-x: auto;
+    height: 400px;
+  }
+  
+  .form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .form-element {
+    width: 100%;
+  }
+  
+  .button {
+    width: 100%;
+  }
+  .example-icon {
+    padding: 0 14px;
+    cursor: pointer;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+  .example-additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+  }

@@ -1,0 +1,64 @@
+.main-div{
+  max-width: 1200px;
+  width: 100%;
+  margin: 0% auto;
+}
+
+.container {
+    padding: 5px;
+    overflow-x: auto;
+    height: calc(100% - 30px);
+    width: calc(100% - 10px);
+    margin-bottom: 15%;
+  }
+  
+  .form {
+    min-width: 150px;
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .form-element {
+    width: 100%;
+  }
+  .form-element-extra{
+    padding: 0px 10px;
+  }
+  
+  .extra-space{
+    margin-left:20px; 
+  }
+
+  form-element-extra{
+    padding: 5px 0px 25px 2px;
+    display: flex;
+    width: 100%;
+  }
+  .search{
+    width: 200px;
+  }
+  .header-data{
+    float: right;
+  }
+  .button {
+    text-align: center;
+    width: 150px;
+  }
+  .example-icon {
+    padding: 0 14px;
+    cursor: pointer;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  textarea{
+    resize: none !important;
+  }
+
+  .form-button{
+    padding: 15px 0px;
+  }

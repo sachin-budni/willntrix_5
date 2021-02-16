@@ -1,0 +1,166 @@
+
+.container1 {
+    height: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0px auto;
+    color: black;
+  }
+    .scrolling-text {
+      position: absolute;
+      font-size: 20px;
+      white-space: nowrap;
+      margin-top: 6px;
+      font-weight: bold; 
+      font-family: "Comfortaa", Regular; 
+      color: var(--router-background-color-bk);
+    }
+    .scroll-img{
+        position: absolute;
+        z-index: 2;
+        background-color: var(--white-color-bk-font);
+    }
+    .Scrolling_img{
+        padding: 0px;
+        border-radius: 0px !important;
+        box-shadow: none !important;
+    }
+  
+  .coinImage{
+    width: 18px;
+    height: 16px;
+  }
+  
+  
+  .main-div{
+    width: 100%;
+  }
+  .head{
+    font-family: 'Poppins',Regular;
+  }
+  .sub-head{
+    font-family: 'Poppins',Regular;
+    font-size: 25px;
+  }
+  .head-button{
+    width: 100%;
+    max-width: 350px;
+    margin: 0% auto;
+    button{
+        background-color: var(--content-background-color-bk) !important;
+        color: var(--white-color-bk-font);
+        font-family: 'Poppins',Regular;
+        margin: 10px;
+    }
+  }
+  .Enquiry-form-head{
+    width: 100%;
+    font-family: 'Poppins',Regular;
+  }
+  
+  .example-form {
+    width: 100%;
+    font-family: 'Poppins',Regular;
+  }
+  
+  .example-full-width {
+    width: 100%;
+    font-family: 'Poppins',Regular;
+  }
+  .submit-enquiry{
+    float: right;
+    width: 100%;
+    max-width: 170px;
+    min-width: 150px;
+    button{
+        width: 100%;
+        max-width: 150px;
+        background-color: var(--router-background-color-bk);
+        color: var(--white-color-bk-font);
+    }
+  }
+  .classroom{
+      width: 100% !important;
+      display: grid !important;
+  }
+  
+  .slideImage{
+    width: 25%;
+    height: 100%;
+  }
+  
+  .main7-div1{
+    width: 100%;
+  }
+  
+  .main7-div{
+    width: 100%;
+    padding: 4% 0px;
+    display: flex;
+    place-content: center center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  
+  .text-area-data{
+    padding: 0px 10px;
+    line-height: 45px;
+  }
+  
+  .image-area-data{
+    height: 350px;
+    display: flex;
+  }
+  
+  @media(max-width:400px){
+    .text-area-data p{
+        font-size: 14px !important;
+   }
+   .text-area-data{
+       line-height: 35px;
+   }
+   .question{
+        font-size: 15px !important;
+    }
+    .sub2-main7{
+        font-size: 12px;
+        line-height: 40px;
+    }
+    .sub1-main7{
+      img{
+        width: 250px;
+      }
+    }
+    .address{
+      position: relative !important;
+      margin: 0px !important;
+    }
+    .address-menu{
+      font-size: 16px !important;
+    }
+    .main-sub{
+      font-size: 1em;
+      text-indent: 50px;
+    }
+    .main-head{
+      font-size: 1.2em;
+    }
+    .contact-mail{
+      font-size: 20px !important;
+    }
+    .mail-head{
+      font-size: 24px !important;
+    }
+  }
+  .mail-head{
+    font-family: "Comfortaa",cursive;
+    font-size: 32px;
+    font-weight: 500;
+    span{
+      color: var(--points-bk-color);
+    }
+  }

@@ -1,0 +1,115 @@
+.example-icon {
+    cursor: pointer;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .form-data{
+    width: 100%;
+    padding: 10px;
+  }
+
+  .admin-main{
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+    font-family:Roboto, "Helvetica Neue", sans-serif;
+  }
+  .admin-subMain{
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0px auto;
+  }
+
+  .admin-form{
+    padding-top:2%; 
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .title{
+    font-size: 30px !important;
+    width: 100%;
+  }
+
+  .authorName{
+    width: 100%;
+  }
+
+  .autoForm{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .field-image-link{
+    display: flex;
+    flex: 1 1 auto;
+    width: 100%
+  }
+  .sub-field-img-link{
+    width: 100%;
+  }
+  .form-field{
+    width: calc(100% - 20px);
+    padding: 10px;
+  }
+
+  .upload-button-div{
+    height: 200px;
+    display: flex;
+    place-content: center;
+    align-items: center;
+    border: 2px dashed rgba(0,0,0,0.5);
+  }
+
+  .upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .btn1 {
+    background: none;
+    border: none;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+  .add-img{
+    width: 150px;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  .paragraph{
+    width: 100%;
+    padding: 10px;
+  }
+
+  .image-title{
+    text-align: center;
+  }
+  .image-title img{
+    max-width: 420px;
+    width: 100%;
+    opacity: 1;
+    cursor: none;
+  }
+  .example-chip-list {
+    width: 100%;
+  }
+  mat-chip{
+    font-family:Roboto, "Helvetica Neue", sans-serif;
+  }
+  h3{
+    font-family:Roboto, "Helvetica Neue", sans-serif;
+  }

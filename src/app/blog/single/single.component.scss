@@ -1,0 +1,111 @@
+@import './../../../theme.scss';
+.content{
+    font-size: 16px;
+    p{
+        font-size: 16px;
+    }
+}
+.example-header-image {
+    background-image: url('https://www.willntrix.com/assets/profile.svg');
+    background-size: cover;
+  }
+
+.category-chips{
+    margin: 1em 0em;
+}
+
+@media (max-width: 767px){
+    .content{
+        font-size: 12px;
+    }
+    .header-name > h1{
+        font-size: 20px;
+    }
+}
+.header-name > h1{
+    margin: 0px;
+}
+
+.divider{
+    margin: 0px 20px;
+    .mat-divider-horizontal{
+        position: relative !important;
+    }
+}
+@media (max-width: 767px){
+    .right-nav{
+        display: none;
+    }
+}
+
+.contentImage{
+    width: 100%;
+}
+.author{
+    display: flex;
+    flex-direction: row;
+    ::ng-deep .mat-card-subtitle{
+        padding-left: 5px;
+        margin-bottom:0px !important;
+        margin-top: 0px !important; 
+    }
+}
+.left-side-subtitle{
+    span{
+        color: rgba(0,0,0,.54);
+        font-size: 14px;
+    }
+}
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 0px;
+    height: 0;
+    margin: 20px 0px;
+}
+
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.title-images{
+    width: 100%;
+    background-size: contain;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0px;
+}
+
+.material-icon-images{
+    font-size: 18px !important;
+}
+
+.material-position{
+    width:18px !important;
+    height:18px !important;
+    padding-right:5px; 
+}
+.arrow{
+    font-weight: 100;
+    font-size: 14px;
+    padding: 5px;
+    color: rgba(0, 0, 0, 0.54);
+}
+.main-blog{
+    padding: 10px;
+}
+.blog-div{
+    box-shadow: $shadow-to-all;
+}
+.example-card{
+    box-shadow: none !important;
+}
+
+.prograss{
+    height: 75vh;
+}

@@ -1,0 +1,66 @@
+.fill-remaining-space {
+    flex: 1 1 auto;
+  }
+  .container {
+    padding: 5px;
+    overflow-x: auto;
+    height: 420px;
+    width: 100%;
+  }
+  
+  .form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .form-element {
+    width: 100%;
+  }
+  
+  .extra-space{
+    margin-left:20px; 
+  }
+
+  form-element-extra{
+    padding: 5px 0px 25px 2px;
+    display: flex;
+    width: 90%;
+  }
+
+  .button {
+    width: 100%;
+  }
+  .example-icon {
+    padding: 0 14px;
+    cursor: pointer;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+  .chooseDiv{
+    padding: 10px 10px;
+    background: #5875e0ba;
+    position: relative;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .hide_file{
+    position: absolute;
+    z-index: 1000;
+    opacity: 0;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+    height: 100%;
+    font-size: 24px;
+    width: 100%;
+  }

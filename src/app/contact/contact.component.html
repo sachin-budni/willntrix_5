@@ -1,0 +1,48 @@
+<mat-card class="card-demo" style="margin-bottom: 20px;box-shadow: none">
+  <mat-card-title class="contactusheader">Contact Us</mat-card-title>
+  <mat-card-content>
+    <div class="containerX">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlexclass="coloredContainerX box">
+        <div fxFlex>
+          <div class="contact-us-image">
+            <img src="assets/contact_social.svg" alt="Contact Willntrix" style="width: 100%">
+          </div>
+        </div>
+        <div fxFlex>
+          <div class="headerContent">
+            Email us with any questions related to career guidance or call us at 9164808121
+            we would be happy to answer you questions and setup a meeting with you
+          </div>
+          <div>
+            <form [formGroup]="contactFormGroup" (ngSubmit)="Save(contactFormGroup.value)" class="form">
+
+              <mat-form-field class="form-element" *ngFor="let field of formFields">
+                <input matInput placeholder={{field.placeHolder}} [name]="field.formName" formControlName={{field.formName}}>
+                <!-- <mat-error
+                  *ngIf="!contactFormGroup.controls[field.formName].valid && contactFormGroup.controls[field.formName].touched">
+                  required
+                </mat-error> -->
+              </mat-form-field>
+
+              <mat-form-field class="form-element">
+                <textarea matInput placeholder="Message" name="message" formControlName="message"></textarea>
+                <mat-error
+                  *ngIf="!contactFormGroup.controls['message'].valid && contactFormGroup.controls['message'].touched">
+                  required
+                </mat-error>
+              </mat-form-field>
+
+              <div class="form-element">
+                <button mat-raised-button color="primary" type="submit" class="button"
+                  [disabled]="!contactFormGroup.valid">Send</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-footer style="width:95%">
+  </mat-card-footer>
+</mat-card>

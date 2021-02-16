@@ -1,0 +1,62 @@
+.card-demo{
+  margin-bottom: 20px;
+  box-shadow: none;
+  background-image: url(https://www.willntrix.com/assets/faq.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-attachment: fixed;
+}
+
+.contactusheader{
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Poppins',Regular;
+}
+
+p{
+    margin: 40px;
+    font-size: 16px;
+}
+
+.container {
+    height: 30px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .scrolling-text {
+    position: absolute;
+    white-space: nowrap;
+  }
+
+  .faq-div{
+    width: 100%;
+    max-width: 1000px;
+    margin: 0px auto;
+  }
+
+  .que{
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  .ans{
+    padding: 10px 10px 10px 30px;
+    font-size: 16px;
+  }
+
+  .smily{
+      width: 20px;
+      height: 20px;
+      padding: 0px 0px 0px 10px;
+  }
+  .HappyLearning{
+      float: left;
+      margin: 0px;
+  }
+  .happy{
+      margin-top:20px; 
+  }

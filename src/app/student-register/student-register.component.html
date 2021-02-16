@@ -1,0 +1,194 @@
+<div class="form-data-middle">
+  <div class="form-body">
+    <div class="header-body">
+      <div class="last-update">
+        Last updated on {{date | date:"medium"}}
+      </div>
+      <div class="header-name">
+        <div class="header-data">
+          <span class="data-name">Willntrix-Get skilled | Get hired</span>
+        </div>
+      </div>
+      <div class="search-body">
+        <div class="search-input">
+            <mat-form-field>
+              <input matInput placeholder="Willntrix ID" #id (keyup.enter)="search(id.value)">
+            </mat-form-field>
+        </div>
+        <div class="search-button">
+            <button mat-raised-button (click)="search(id.value)" [disabled]="!(id.value.length == 10)">Search</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-body-content">
+      <div class="form-body-content-space">
+
+        <div class="container">
+          <form [formGroup]="instituteFormGroup" (ngSubmit)="onSubmit(instituteFormGroup.value)" class="form">
+            
+                <mat-form-field>
+                    <input matInput readonly [matDatepicker]="picker" placeholder="Date" formControlName="Date" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="!instituteFormGroup.controls['Date'].valid && instituteFormGroup.controls['Date'].touched">
+                        {{ requiredAlert }}
+                    </mat-error>
+                </mat-form-field>
+
+              <mat-form-field class="ProjectCourse">
+                <input matInput placeholder="Project Or Course" name="ProjectCourse" formControlName="ProjectCourse" required>  
+                <mat-error *ngIf="!instituteFormGroup.controls['ProjectCourse'].valid && instituteFormGroup.controls['ProjectCourse'].touched">
+                    {{ requiredAlert }}
+                </mat-error>
+            </mat-form-field>
+
+              <mat-form-field class="CandidateName">
+                  <input matInput placeholder="Candidate Name" name="CandidateName" formControlName="CandidateName" required>
+                  <mat-error *ngIf="!instituteFormGroup.controls['CandidateName'].valid && instituteFormGroup.controls['CandidateName'].touched">
+                      {{ requiredAlert }}
+                  </mat-error>
+              </mat-form-field>
+      
+              <mat-form-field class="Gender">
+                <mat-select placeholder="Gender *" formControlName="Gender">
+                  <mat-option *ngFor="let g of gender" [value]="g">
+                      {{g}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="!instituteFormGroup.controls['Gender'].valid && instituteFormGroup.controls['Gender'].touched">
+                    {{ requiredAlert }}
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="mobileNo">
+                  <input matInput placeholder="Contact Details" name="ContactDetails" formControlName="ContactDetails" required>  
+                  <mat-error *ngIf="!instituteFormGroup.controls['ContactDetails'].valid && instituteFormGroup.controls['ContactDetails'].touched">
+                      {{ phoneAlert }}
+                  </mat-error>
+              </mat-form-field>
+              
+              <mat-form-field class="mobileNo">
+                <input matInput placeholder="Whatsapp No" name="WhatsappNo" formControlName="WhatsappNo">  
+              </mat-form-field>
+              
+              <mat-form-field class="email">
+                <input matInput placeholder="Email" formControlName="email" name="email" required>
+                <mat-error *ngIf="!instituteFormGroup.controls['email'].valid && instituteFormGroup.controls['email'].touched">
+                  {{ requiredAlert }}
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="joiningdate">
+                    <input matInput readonly [matDatepicker]="picker1" placeholder="Expected Joining Date *" formControlName="joiningDate" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                    <mat-error *ngIf="!instituteFormGroup.controls['joiningDate'].valid && instituteFormGroup.controls['joiningDate'].touched">
+                        {{ requiredAlert }}
+                    </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="address">
+                  <textarea matInput placeholder="Address / Location" name="address" formControlName="address" required></textarea>
+                  <mat-error *ngIf="!instituteFormGroup.controls['address'].valid && instituteFormGroup.controls['address'].touched">
+                      {{ requiredAlert }}
+                  </mat-error>
+              </mat-form-field>
+             
+              <mat-form-field class="education">
+                  <input matInput placeholder="Education Qualification" name="education" formControlName="education" required>  
+                  <mat-error *ngIf="!instituteFormGroup.controls['education'].valid && instituteFormGroup.controls['education'].touched">
+                      {{ requiredAlert }}
+                  </mat-error>
+              </mat-form-field>
+              <br/>
+              <mat-form-field class="work">
+                  <mat-select placeholder="Work *" formControlName="work" (selectionChange)="workData($event)">
+                    <mat-option *ngFor="let w of work" [value]="w">
+                        {{w}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="!instituteFormGroup.controls['work'].valid && instituteFormGroup.controls['work'].touched">
+                    {{ requiredAlert }}
+                </mat-error>
+              </mat-form-field>
+              
+              <mat-form-field class="work" *ngIf="workFieldFlag">
+                  <input matInput placeholder="Year" name="year" formControlName="year" required>  
+                  <mat-error *ngIf="!instituteFormGroup.controls['year'].valid && instituteFormGroup.controls['year'].touched">
+                      {{ requiredAlert }}
+                  </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="company" *ngIf="workFieldFlag">
+                  <input matInput placeholder="Company" name="company" formControlName="company">  
+              </mat-form-field>
+              
+              <mat-form-field class="company" *ngIf="workFieldFlag">
+                  <input matInput placeholder="Designation" name="designation" formControlName="designation" required>  
+                  <mat-error *ngIf="!instituteFormGroup.controls['designation'].valid && instituteFormGroup.controls['designation'].touched">
+                      {{ requiredAlert }}
+                  </mat-error>
+              </mat-form-field>
+
+            <mat-form-field class="company">
+                <mat-select placeholder="Got to know By" formControlName="knowBy" multiple>
+                    <mat-option *ngFor="let topping of typesOfShoes" [value]="topping">{{topping}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="!instituteFormGroup.controls['knowBy'].valid && instituteFormGroup.controls['knowBy'].touched">
+                    {{ phoneAlert }}
+                </mat-error>
+            </mat-form-field>
+
+              <mat-form-field class="refferedBy">
+                  <input matInput placeholder="Refered By" name="refferedBy" formControlName="refferedBy">
+                  <mat-error *ngIf="!instituteFormGroup.controls['refferedBy'].valid && instituteFormGroup.controls['refferedBy'].touched">
+                      {{ requiredAlert }}
+                  </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="careerObject">
+                  <input matInput placeholder="Career Objective" name="careerObject" formControlName="careerObject">
+                  <mat-error *ngIf="!instituteFormGroup.controls['careerObject'].valid && instituteFormGroup.controls['careerObject'].touched">
+                      {{ requiredAlert }}
+                  </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="reminder">
+                  <textarea matInput placeholder="Reminder" name="reminder" formControlName="reminder"></textarea>
+                  <mat-error *ngIf="!instituteFormGroup.controls['reminder'].valid && instituteFormGroup.controls['reminder'].touched">
+                      {{ requiredAlert }}
+                  </mat-error>
+              </mat-form-field>
+      
+              <mat-form-field class="remOn">
+                  <input matInput placeholder="Rem. On" name="remOn" formControlName="remOn">  
+                  <mat-error *ngIf="!instituteFormGroup.controls['remOn'].valid && instituteFormGroup.controls['remOn'].touched">
+                      {{ requiredAlert }}
+                  </mat-error>
+              </mat-form-field>
+              
+              <mat-form-field class="form-element address">
+                  <textarea matInput placeholder="About Class" name="aboutClass" formControlName="aboutClass"></textarea>
+              </mat-form-field>
+      
+              <mat-form-field class="form-element address">
+                  <textarea matInput placeholder="Complaints" class="complaints" formControlName="complaints"></textarea>
+              </mat-form-field>
+      
+              <mat-form-field class="form-element address">
+                  <textarea matInput placeholder="Suggestions" name="suggestions" formControlName="suggestions"></textarea>
+              </mat-form-field>
+
+          <div class="form-element">
+              <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!instituteFormGroup.valid">Submit Form</button>
+          </div>
+      
+          </form>
+      </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

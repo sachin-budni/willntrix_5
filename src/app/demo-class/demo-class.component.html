@@ -1,0 +1,62 @@
+<div class="mainForm">
+  <div class="formHeader">
+      <mat-toolbar class="toolbar-background">
+          <mat-toolbar-row>
+              <span>Free Demo</span>
+              <span class="example-spacer"></span>
+              <mat-icon class="example-icon" (click)="close()">close</mat-icon>
+          </mat-toolbar-row>
+      </mat-toolbar>
+  </div>
+
+  <div class="container">
+      <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+          <mat-form-field class="form-element" >
+              <input matInput placeholder="Name" formControlName="name">
+              <mat-error *ngIf="!formGroup.controls['name'].valid && formGroup.controls['name'].touched">
+              {{ titleAlert }}
+              </mat-error>
+          </mat-form-field>
+          
+
+          <mat-form-field class="form-element" >
+              <input matInput placeholder="Contact No" formControlName="phone">  
+              <mat-error *ngIf="!formGroup.controls['phone'].valid && formGroup.controls['phone'].touched">
+                  {{ phoneAlert }}
+              </mat-error>
+          </mat-form-field>
+              
+          <mat-form-field class="form-element" >
+              <input matInput placeholder="Email" formControlName="email">
+              <mat-error *ngIf="!formGroup.controls['email'].valid && formGroup.controls['email'].touched">
+              {{ getErrorEmail() }}
+              </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-element" >
+              <mat-select placeholder="Interested Course" formControlName="course" multiple>
+                  <mat-select-trigger>
+                  {{formGroup.controls['course'].value}}
+                  </mat-select-trigger>
+                  <mat-option *ngFor="let topping of toppingList | async" [value]="topping.name">{{topping.name}}</mat-option>
+              </mat-select>                
+              <mat-error *ngIf="!formGroup.controls['course'].valid && formGroup.controls['course'].touched">
+              {{ titleAlert }}
+              </mat-error>
+          </mat-form-field>
+          
+          <mat-form-field class="form-element" >
+                  <input matInput [matDatepicker]="picker" formControlName="dob" placeholder="Choose a date">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="!formGroup.controls['dob'].valid && formGroup.controls['dob'].touched">
+                  * Required
+              </mat-error>
+          </mat-form-field>
+      <div class="form-element" >
+          <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Submit Form</button>
+      </div>
+  
+      </form>
+  </div>
+</div>

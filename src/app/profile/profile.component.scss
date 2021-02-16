@@ -1,0 +1,136 @@
+.profile-pic {
+  width: 300px;
+  font-family: Roboto, sans-serif;
+}
+.student-name {
+  font-weight: bold;
+}
+
+.link-website mat-icon {
+  line-height: 10px;
+}
+.pic-img img {
+  width: 200px;
+  box-shadow: 2px 2px 2px #00000087;
+  border-radius: 50%;
+}
+
+.header {
+  font-family: Roboto, sans-serif;
+  font-weight: bold;
+}
+
+.time-experience {
+  font-size: 14px;
+}
+.profile-data {
+  font-family: Roboto, sans-serif;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+
+.company-img img {
+  width: 35px;
+}
+.card-fonts {
+  font-size: 15px;
+}
+
+.main {
+  width: calc(100% - 10px);
+  max-width: 1000px;
+  margin: 0% auto;
+  padding: 0px 5px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+.header-card {
+  background-color: rgb(122, 119, 124);
+  color: white;
+}
+.detail {
+  padding-left: 20px;
+}
+mat-card {
+  font-family: "Lato", sans-serif;
+}
+p {
+  font-size: 22px;
+}
+.consulting-field {
+  width: 250px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+.header-card {
+  background-color: rgb(122, 119, 124);
+  color: var(--white-color-bk-font);
+}
+.detail {
+  padding-left: 20px;
+}
+mat-card {
+  font-family: "Lato", sans-serif;
+}
+p {
+  font-size: 22px;
+}
+.consulting-field {
+  width: 250px;
+}
+
+.table-div {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.escalate-management {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  .example-full-width {
+    width: 100%;
+  }
+  button {
+    margin: 20px;
+    background-color: var(--bk-danger);
+    color: var(--white-color-bk-font);
+  }
+}
+@media only screen and (max-width: 500px) {
+  p {
+    font-size: 20px;
+  }
+}
+.daily-tracker {
+  background-color: #b8b8b8;
+  color: #000000;
+}

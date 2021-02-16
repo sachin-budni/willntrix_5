@@ -1,0 +1,75 @@
+<div class="main">
+  <mat-card>
+    <div style="padding: 20px;"></div>
+    <div fxLayout="row-reverse" fxLayoutAlign="space-between center" *ngIf="instituteUser | async as user"
+      fxLayout.xs="column">
+      <div>
+        <div class="pic-img">
+          <img [src]="user.userProfile?user.userProfile:'assets/profile.svg'" alt="Profile Image" />
+        </div>
+      </div>
+      <div style="padding: 10px;"></div>
+      <div>
+        <p>Name : {{user.userName}}</p>
+        <p>Email : {{user.userEmail}}</p>
+      </div>
+    </div>
+    <div *ngIf="studentInstituteDetails | async as instituteUser">
+      <p>Start-date : {{(instituteUser.joiningDate?.seconds*1000) | date:'d MMM y'}}</p>
+      <p>Address : {{instituteUser.address}}</p>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="end center">
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px" fxLayout.xs="column">
+        <mat-form-field class="consulting-field">
+          <mat-label>Select Trainer Or Consultant</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let food of trainers" [value]="food">
+              {{food}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-stroked-button>
+            <span>Ring</span>
+            <mat-icon>notifications_active</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center">
+      <button class="daily-tracker" mat-raised-button routerLink="/student">Update Tracker</button>
+    </div>
+
+    <div style="padding: 20px;"></div>
+
+    <div *ngIf="studentDailyEntry | async as dailyEntry" class="table-div">
+      <table border="1">
+        <tr>
+          <th>S/No</th>
+          <th>Class Attentted Date</th>
+          <th> Trainer Name</th>
+          <th>Class Start Time</th>
+          <th>Class End Time</th>
+          <th>About Class </th>
+        </tr>
+        <tr *ngFor="let entry of dailyEntry;let i=index">
+          <td>{{i+1}}</td>
+          <td>{{(entry.attendenceDate?.seconds*1000) | date:'short'}}</td>
+          <td>{{entry.trainerConsultant}}</td>
+          <td>{{entry.startTime}}</td>
+          <td>{{entry.entTime}}</td>
+          <td>{{entry.aboutClass}}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="escalate-management">
+      <mat-form-field class="example-full-width">
+        <textarea matInput [(ngModel)]="mailtext" placeholder="Escalate issue to the management"></textarea>
+      </mat-form-field>
+      <button mat-raised-button (click)="sendMailToShailu()">Send</button>
+    </div>
+
+  </mat-card>
+</div>

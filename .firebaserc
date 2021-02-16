@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tracker-c3f1e": {
+      "hosting": {
+        "willntrix": [
+          "tracker-c3f1e"
+        ]
+      }
+    }
+  }
+}

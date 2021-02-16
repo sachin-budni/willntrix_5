@@ -1,0 +1,209 @@
+<div id="main" style="position: absolute"></div>
+<div #scroller>
+  <!-- <mat-card class="Scrolling_img">
+    <mat-card-title class="Placeementtraining">
+      <div>
+        <div class="container1">
+          <div class="scrolling-text" [@scroll]="state" (@scroll.done)="scrollDone()">
+            <div class="roll">
+              <span>
+                {{alertMessage}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card-title>
+  </mat-card> -->
+
+  <div class="main-div">
+
+    <app-layer1></app-layer1>
+
+    <div class="main2-div">
+      <span class="example-spacer"></span>
+      <div style="max-width: 500px">
+        <app-apply-enquiry></app-apply-enquiry>
+      </div>
+    </div>
+
+    <div class="main-div-headers">
+      <p class="main-head">
+        Willntrix - Get Skilled | Get Hired
+      </p>
+      <p class="main-sub">
+        Willntrix was established in 2016 and running successfully since then. It is an expert training institute in
+        Advanced Excel, VBA, SQL, Data Analytics and Data Science. We have a number of effective trainers and we provide
+        a great deal of flexibility to learners. We have framed our syllabus to match with the real-world requirements
+        for both the beginner level and the advanced level.
+      </p>
+      <p class="main-sub">
+        Our unique training delivery methods helps students or professionals to understand the core concepts of any
+        technology and crack the interview, this made a big list of successful candidates who are placed in esteem
+        organisations like Infosys, Dell, Oracle etc.
+      </p>
+    </div>
+
+    <div class="main3-div">
+      <div class="main3-head">
+        <h1>CERTIFIED COURSES</h1>
+        <h1 class="sub-head1">PERSONALIZED JOB ORIENTED COURSES & TRAINING</h1>
+      </div>
+      <div class="sub3-div">
+        <div class="card-div" *ngFor="let d of AllCourseImages | async">
+          <mat-card class="example-card">
+            <img mat-card-image [src]="d.icon" alt="{{d.name}}">
+            <mat-card-content class="course-content">
+              <div fxLayout="column">
+                <span>{{d.name}}</span>
+                <hr/>
+                <span class="hours">{{d.hour}} Hours</span><br />
+              </div>
+              <button mat-button [routerLink]="[ '/course', d.route ]">Read More</button>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
+    <div class="main4-div">
+      <div class="main4-div-head">
+        <span>Different mode of training</span>
+      </div>
+      <div class="sub1-main4">
+        <div class="sub1-main4-card {{d.class}}" *ngFor="let d of modeTrain">
+          <img [src]="d.img" [alt]="d.mode">
+          <div class="background-imgs">
+            <div class="img-background {{d.class+'-background'}}"></div>
+          </div>
+          <span>{{d.mode}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="main5-div" id="Reviews" *ngIf="reviewData">
+      <div class="main5-div-head">
+        <span>What they say</span>
+      </div>
+      <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="reviewData">
+        <div *nguCarouselDef="let item;" class="item">
+          <div class="sub1-main5">
+            <img src="assets/comm.svg" alt="comma" class="comma">
+            <p class="desc">{{item.desc}}</p>
+            <div class="profile-div">
+              <img class="profile" [src]="item.image" alt="Student Profiles">
+            </div>
+            <p>{{item.name}}</p>
+          </div>
+        </div>
+        <button NguCarouselNext class="rightRs">></button>
+        <button NguCarouselPrev class="leftRs">
+          <</button> <ul class="myPoint" NguCarouselPoint>
+            <li *ngFor="let j1 of myCarousel?.pointNumbers; let j = index" [class.active]="j == myCarousel?.activePoint"
+              (click)="myCarousel?.moveTo(j)"></li>
+            </ul>
+      </ngu-carousel>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <a class="review-more" routerLink="/review">
+          <button mat-button>More Reviews ...</button>
+        </a>
+      </div>
+    </div>
+
+    <div class="main6-div" *ngIf="imgList" id="Testimonials">
+      <div class="main5-div-head">
+        <span>Willntrix students and profissionals got placed in these companies</span>
+      </div>
+      <ngu-carousel #myCarousel1 [inputs]="carouselConfig" [dataSource]="imgList">
+        <div *nguCarouselDef="let item;" class="item">
+          <img class="slideImage" src="{{item[0]}}" alt="Comapny Image">
+          <img class="slideImage" src="{{item[1]}}" alt="Comapny Image">
+        </div>
+        <button NguCarouselNext class="rightRs">></button>
+        <button NguCarouselPrev class="leftRs">
+          <</button> <ul class="myPoint" NguCarouselPoint>
+            <li *ngFor="let j1 of myCarousel1.pointNumbers; let j = index" [class.active]="j == myCarousel1.activePoint"
+              (click)="myCarousel1.moveTo(j)"></li>
+            </ul>
+      </ngu-carousel>
+    </div>
+
+
+    <div class="main6-div">
+      <div class="main6-sub1">
+        <div class="text-area-data">
+          <p>Why us?</p>
+          <p>Experienced domestic and MNC Professionals </p>
+          <p>Placement oriented and guaranteed courses </p>
+          <p>Projects for each course </p>
+          <p>Self prepared and evaluated material </p>
+          <p>Updated syllabus </p>
+          <p>Flexible timings </p>
+          <p>One to one sessions</p>
+        </div>
+        <div class="image-area-data">
+          <img src="assets/board.svg" alt="FAQ Questions">
+        </div>
+      </div>
+    </div>
+
+    <div style="padding: 5%"></div>
+
+    <div class="main7-div1">
+      <div class="main7-div">
+        <div class="sub1-main7">
+          <img src="assets/question.svg" alt="FAQ Questions">
+        </div>
+        <div class="sub2-main7">
+          <div class="question">
+            Frequently Asked Questions
+          </div>
+          <mat-accordion>
+            <mat-expansion-panel class="expansion-panels" style="border-radius: 25px !important;margin: 10px 0px"
+              *ngFor="let question of faqs">
+              <mat-expansion-panel-header class="header-name">
+                <mat-panel-title>
+                  {{question.que}}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              {{question.ans}}
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-mail">
+      <div>
+        <div>We' d love to hear from you.</div>
+        <div class="mail-head">Email us at <span>info@willntrix.com</span></div>
+      </div>
+    </div>
+
+    <div class="main8-div">
+      <div class="main8-sub1" fxLayout="column">
+        <img src="assets/global.svg" alt="Location Of the institute" fxHide.sm fxHide.xs>
+        <div class="address">
+          <div class="location-name">
+            Location <mat-icon>location_on</mat-icon>
+          </div>
+          <div class="location">
+            Madiwal :
+          </div>
+          <div class="address-menu">
+            Willntrix, #1, 1st Fl.SMS Bldg Near Ayyappa Swami Temple Madiwala, 1st Stage - BTM Layout Bengaluru,
+            Karnataka 560068
+          </div>
+          <div class="location">
+            Marathahalli : <span class="new-text">NEW</span>
+          </div>
+          <div class="address-menu">
+            Willntrix, 3rd Fl. Krishna Tower Outer Ring Road, Aswath Nagar, Marathahalli Bengaluru, Karnataka 560037
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

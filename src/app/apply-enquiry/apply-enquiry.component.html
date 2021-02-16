@@ -1,0 +1,24 @@
+<span class="example-spacer"></span>
+    <div class="sub2-div">
+      <div class="Enquiry-form-head">
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayout.md="column" fxLayout.sm="column" fxLayout.xs="column">
+          <h2>Enquiry now</h2>
+          <span style="padding: 0px 10px"></span>
+          <span>This enquiry might change your career</span>
+        </div>
+      </div>
+      <form [formGroup]="enquiryNow" (ngSubmit)="onSubmit(enquiryNow.value)" class="example-form">
+        <mat-form-field class="example-full-width" *ngFor="let field of formFields">
+          <input matInput placeholder={{field.placeHolder}} formControlName={{field.formName}}>
+          <!-- <mat-error *ngIf="!enquiryNow!.controls[field.formName].valid && enquiryNow!.controls[field.formName].touched">
+              {{ requiredAlert }}
+          </mat-error> -->
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Message" formControlName="message"></textarea>
+        </mat-form-field>
+        <div class="submit-enquiry">
+          <button mat-button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>

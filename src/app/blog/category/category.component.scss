@@ -1,0 +1,53 @@
+@import './../../../theme.scss';
+.blog-main-div{
+    width: 100%;
+    height: 100%;
+}
+.blog-sub-div{
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0% auto;
+}
+.data-flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.side-footer{
+    width: calc(100% - 32px) !important;
+}
+mat-card{
+    width:300px;
+    margin: 2% 0%;
+    border-radius: 10px !important;
+    box-shadow: $shadow-to-all !important;
+    img{
+        height: 200px;
+    }
+}
+.social{
+    display: flex;
+    flex-direction: row;
+}
+mat-card-title{
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px !important;
+    cursor: pointer;
+}
+mat-card-title:hover{
+    text-decoration: underline;
+}
+.sub-title{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Nunito', sans-serif;
+}
+
+::ng-deep .mat-card-header-text{
+    width: calc(100% - 32px) !important;
+}
+.mat-card-header-data{
+    word-break: break-word;
+}
+  

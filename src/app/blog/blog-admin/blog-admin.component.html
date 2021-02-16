@@ -1,0 +1,121 @@
+<mat-card style="margin: 10px 0px ;">
+  <div class="admin-form">
+    <form [formGroup]="adminForm" class="form-data">
+      <mat-form-field appearance="outline" class="title">
+        <textarea matInput cols="30" rows="3" formControlName="title" placeholder="Title"></textarea>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline" class="authorName">
+        <input matInput readonly formControlName="authorName" placeholder="Author Name" />
+      </mat-form-field>
+
+      <div hidden>
+        <mat-form-field>
+          <input matInput formControlName="titleImage" placeholder="Author Name" />
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="adminForm.controls['titleImage'].value" class="image-title">
+        <img [src]="adminForm.controls['titleImage'].value" [alt]="adminForm.controls['title'].value">
+      </div>
+
+      <div class="sub-field-img-link">
+        <div class="upload-button-div">
+          <div class="upload-btn-wrapper">
+            <button class="btn1"><img class="add-img" src="assets/plusimage.png"
+                alt="Blog add"></button>
+            <input type="file" name="myfile" accept="image/*" (change)="uplaod($event,'titleImage',null)" />
+          </div>
+        </div>
+      </div>
+
+      <mat-form-field class="authorName">
+        <input matInput placeholder="Category Name" (keydown.enter)="addCatogoryChip($event)">
+      </mat-form-field>
+
+      <h3>Selected Categories :</h3>
+      <mat-chip-list aria-label="Fish selection">
+        <mat-chip *ngFor="let item of selectedCategotyChips;let i=index">
+          {{item}}
+          <mat-icon matChipRemove (click)="remove(i)">cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+
+      <h3>Default Categories :</h3>
+      <mat-chip-list aria-label="Fish selection">
+        <mat-chip *ngFor="let item of categoryChips;" (click)="addChip(item)">{{item}}</mat-chip>
+      </mat-chip-list>
+
+
+      <div formArrayName="content" cdkDropList (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of contentForm.controls; let pointIndex=index" [formGroupName]="pointIndex"
+          class="autoForm" cdkDrag>
+          <div class="field-image-link">
+
+            <div *ngIf="containValue(item, 'paragraph')" class="paragraph">
+              
+              <quill-editor placeholder="Paragraph" [modules]="quillConfig.modules" formControlName="paragraph">
+              </quill-editor>
+            </div>
+
+            <div hidden>
+              <mat-form-field *ngIf="containValue(item, 'image')">
+                <input matInput formControlName="image" placeholder="Author Name" />
+              </mat-form-field>
+            </div>
+
+
+            <div *ngIf="containValue(item, 'image')" class="sub-field-img-link">
+              <div *ngIf="containValue(item, 'image')">
+                <div *ngIf="getControllerValue(item)" class="image-title">
+                  <img [src]="getControllerValue(item)" alt="Sub Images Of the blog">
+                </div>
+              </div>
+
+              <div class="upload-button-div">
+                <div class="upload-btn-wrapper">
+                  <button class="btn1"><img class="add-img" src="assets/plusimage.png"
+                      alt="Add images"></button>
+                  <input type="file" name="myfile" accept="image/*" (change)="uplaod($event,'image',pointIndex)" />
+                </div>
+              </div>
+
+            </div>
+
+            <div *ngIf="containValue(item, 'link')" class="sub-field-img-link">
+              <mat-form-field class="form-field">
+                <input matInput placeholder="Video Link" formControlName="link">
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-icon class="example-icon" (click)="deleteSellingPoint(pointIndex)">close</mat-icon>
+              <div class="example-handle" cdkDragHandle>
+                <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                </svg>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <mat-toolbar>
+          <mat-icon>add_circle_outline</mat-icon>
+          <span class="example-spacer">
+
+          </span>
+          <mat-icon class="example-icon" (click)="addSellingPoint('paragraph')">text_fields</mat-icon>
+          <mat-icon class="example-icon" (click)="addSellingPoint('image')">add_photo_alternate</mat-icon>
+          <mat-icon class="example-icon" (click)="addSellingPoint('link')">link</mat-icon>
+        </mat-toolbar>
+      </div>
+      <div>
+        <button mat-raised-button color="primary" [disabled]="!adminForm.valid" (click)="onSubmit(adminForm.value)"
+          type="button">Submit</button>
+      </div>
+    </form>
+  </div>
+</mat-card>

@@ -1,0 +1,58 @@
+<div class="blog-main-div">
+      <div class="all-content" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center space-between">
+        <div class="main-content">
+          <router-outlet></router-outlet>
+        </div>
+
+        <div fxFlex style="padding: 20px;"></div>
+        
+        <div>
+          <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="20px" style="max-width: 350px">
+            <mat-card class="side-footer">
+                <form [formGroup]="searchFormGroup" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+  
+                  <mat-form-field appearance="outline">
+                    <input type="text" placeholder="Search ..." aria-label="Number" matInput formControlName="search" [matAutocomplete]="auto">
+                    <mat-autocomplete appearance="outline" class="search-input" [displayWith]="displayFn" autoActiveFirstOption #auto="matAutocomplete">
+                      <mat-option *ngFor="let option of paload" [value]="option">
+                        <span>{{option.title}}</span>
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                  <button mat-button (click)="searchBlog(searchFormGroup.value)" class="search-button">Search</button>
+                </form>
+            </mat-card>
+            <mat-card class="example-card side-footer" >
+              <h2>Recent Posts</h2>
+              <mat-card class="example-card1" *ngFor="let posts of recentlyPosts | async">
+                <mat-card-header>
+                  <div mat-card-avatar [style.background-image]="'url('+posts?.titleImage+')'" class="example-header-image">
+                  </div>
+                  <mat-card-title class="header" (click)="getBlog(posts.title)" [matTooltip]="posts?.title">{{posts?.title.length>50?posts.title.substring(0,50)+"...":posts.title}}</mat-card-title>
+                  <mat-card-subtitle class="sub-header"><span>posted on:</span>{{posts?.date | date:'MMM d, y'}}
+                  </mat-card-subtitle>
+                </mat-card-header>
+              </mat-card>
+    
+            </mat-card>
+    
+            <mat-card class="follow side-footer">
+              <h3>Follow Us</h3>
+              <p>Stay updated via social channels</p>
+              <a href="https://www.facebook.com/willntrix" target="_blank" fxLayout="row" fxLayoutAlign="center center">
+                <img src="assets/icon-facebook.png"
+                  alt="facebook logo">
+              </a>
+            </mat-card>
+    
+            <mat-card class="side-footer">
+              <h2>Tags</h2>
+              <mat-chip-list aria-label="Tag selection" class="mat-chips">
+                  <mat-chip *ngFor="let tag of tags | async" [routerLink]="['category', tag ]">{{tag}}</mat-chip>
+              </mat-chip-list>
+            </mat-card>
+          </div>
+        </div>
+  
+      </div>
+  </div>

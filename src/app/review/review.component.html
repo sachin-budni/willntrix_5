@@ -1,0 +1,61 @@
+<div
+  fxLayout="row"
+  fxLayout.sm="column"
+  fxLayoutAlign="center start"
+  fxLayoutAlign.sm="start center"
+  fxLayoutAlign.xs="start center"
+  fxLayout.xs="column"
+>
+  <div class="main-div">
+    <mat-card
+      *ngFor="let review of $reviews | async; let i = index"
+      [id]="review.key"
+      class="div-card"
+    >
+      <div fxLayout="row" fxLayoutAlign="start start">
+        <div class="img-div">
+          <img class="profile-img" [src]="review.image" alt="review.name" />
+        </div>
+        <div fxLayout="column">
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <h4>{{ review.name }}</h4>
+            <div fxLayout="row" fxLayoutGap="10px" class="design-company">
+              <p>{{ review.designation }}</p>
+              <p>{{ review.company }}</p>
+            </div>
+          </div>
+          <p class="desc">{{ review.desc }}</p>
+          <ng-container *ngIf="review.skills">
+            <div fxLayout="row" fxLayoutAlign="start center">
+              <p>
+                About :
+              </p>
+              <div class="clips-div">
+                <span *ngFor="let skill of review.skills" class="clips">{{
+                  skill
+                }}</span>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <ng-container *ngIf="review.videoLink">
+        <iframe [src]="review.videoLink | video" class="iframe-video"> </iframe>
+      </ng-container>
+    </mat-card>
+  </div>
+
+  <div class="facebook-frame">
+    <iframe
+      src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fwillntrix%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2153602334860007"
+      width="340"
+      height="500"
+      style="border:none;overflow:hidden"
+      scrolling="no"
+      frameborder="0"
+      allowTransparency="true"
+      allow="encrypted-media"
+    >
+    </iframe>
+  </div>
+</div>

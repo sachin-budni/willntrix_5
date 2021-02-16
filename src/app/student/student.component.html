@@ -1,0 +1,128 @@
+<div class="main-div">
+    <div class="header-data">
+        <div class="header-input">
+            <mat-form-field class="search">
+                <input matInput placeholder="Mobile No" #id (keyup.enter)="Search(id.value)">
+            </mat-form-field>
+        </div>
+        <div class="button">
+            <button mat-raised-button color="primary" [disabled]="!(id.value.length == 10)"
+                (click)="Search(id.value)">Search</button>
+        </div>
+    </div>
+    <div class="container">
+        <form [formGroup]="studentFormGroup" (ngSubmit)="onSubmit(studentFormGroup.value)" class="form">
+    
+            <mat-form-field class="form-element-extra">
+                <input matInput readonly [matDatepicker]="picker" placeholder="Attendence Date"
+                    formControlName="attendenceDate" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker disabled="true"></mat-datepicker>
+                <mat-error
+                    *ngIf="!studentFormGroup.controls['attendenceDate'].valid && studentFormGroup.controls['attendenceDate'].touched">
+                    {{ requiredAlert }}
+                </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field class="form-element-extra">
+                <input matInput placeholder="Start Time" name="startTime" type="time" required formControlName="startTime">
+                <mat-error
+                    *ngIf="!studentFormGroup.controls['startTime'].valid && studentFormGroup.controls['startTime'].touched">
+                    {{ requiredAlert }}
+                </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field class="form-element-extra">
+                <input matInput placeholder="End Time" name="endtime" type="time" required formControlName="entTime">
+                <mat-error
+                    *ngIf="!studentFormGroup.controls['entTime'].valid && studentFormGroup.controls['entTime'].touched">
+                    {{ requiredAlert }}
+                </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field class="form-element">
+                <input matInput placeholder="Trainer Or Consultant" required name="trainerConsultant"
+                    formControlName="trainerConsultant">
+                <mat-error
+                    *ngIf="!studentFormGroup.controls['trainerConsultant'].valid && studentFormGroup.controls['trainerConsultant'].touched">
+                    {{ requiredAlert }}
+                </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field class="form-element-extra">
+                <textarea matInput placeholder="Reminder" name="reminder" formControlName="reminder"></textarea>
+            </mat-form-field>
+    
+            <mat-form-field class="form-element-extra">
+                <input matInput readonly [matDatepicker]="picker1" placeholder="Rem. No" formControlName="remOn">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1 disabled="true"></mat-datepicker>
+            </mat-form-field>
+    
+            <mat-form-field class="form-element">
+                <textarea matInput placeholder="Today's Topic" name="aboutClass" required formControlName="aboutClass">
+            </textarea>
+                <mat-error
+                    *ngIf="!studentFormGroup.controls['aboutClass'].valid && studentFormGroup.controls['aboutClass'].touched">
+                    {{ requiredAlert }}
+                </mat-error>
+            </mat-form-field>
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            more ...
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-form-field class="form-element">
+                        <input matInput placeholder="Candidate Name" name="CandidateName" formControlName="CandidateName"
+                            required>
+                        <mat-error
+                            *ngIf="!studentFormGroup.controls['CandidateName'].valid && studentFormGroup.controls['CandidateName'].touched">
+                            {{ requiredAlert }}
+                        </mat-error>
+                    </mat-form-field>
+    
+    
+                    <mat-form-field class="form-element">
+                        <input matInput placeholder="Contact No" name="ContactNo" formControlName="ContactNo" required>
+                        <mat-error
+                            *ngIf="!studentFormGroup.controls['ContactNo'].valid && studentFormGroup.controls['ContactNo'].touched">
+                            {{ phoneAlert }}
+                        </mat-error>
+                    </mat-form-field>
+    
+                    <mat-form-field class="form-element">
+                        <input matInput placeholder="Whatsapp No" name="WhatsappNo" formControlName="WhatsappNo">
+                    </mat-form-field>
+    
+                    <mat-form-field class="form-element">
+                        <input matInput placeholder="Project Or Course" name="projectCourse" formControlName="projectCourse"
+                            required>
+                        <mat-error
+                            *ngIf="!studentFormGroup.controls['projectCourse'].valid && studentFormGroup.controls['projectCourse'].touched">
+                            {{ requiredAlert }}
+                        </mat-error>
+                    </mat-form-field>
+    
+                    <mat-form-field class="form-element">
+                        <textarea matInput placeholder="Complaints" name="complaints"
+                            formControlName="complaints"></textarea>
+                    </mat-form-field>
+    
+                    <mat-form-field class="form-element">
+                        <textarea matInput placeholder="Suggestions" name="suggestions"
+                            formControlName="suggestions"></textarea>
+                    </mat-form-field>
+    
+                </mat-expansion-panel>
+            </mat-accordion>
+    
+            <div class="form-element form-button">
+                <button mat-raised-button color="primary" type="submit" class="button"
+                    [disabled]="!studentFormGroup.valid">Submit Form</button>
+            </div>
+    
+        </form>
+    </div>
+</div>
