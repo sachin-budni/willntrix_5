@@ -9,10 +9,10 @@
       </div>
       <form [formGroup]="enquiryNow" (ngSubmit)="onSubmit(enquiryNow.value)" class="example-form">
         <mat-form-field class="example-full-width" *ngFor="let field of formFields">
-          <input matInput placeholder={{field.placeHolder}} formControlName={{field.formName}}>
-          <!-- <mat-error *ngIf="!enquiryNow!.controls[field.formName].valid && enquiryNow!.controls[field.formName].touched">
+          <input matInput placeholder={{field.placeHolder}} [type]="field.formName === 'mobileNo' ? 'number' : 'text'" formControlName={{field.formName}}>
+          <mat-error *ngIf="!getValid(enquiryNow,field) && getTouch(enquiryNow,field)">
               {{ requiredAlert }}
-          </mat-error> -->
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <textarea matInput placeholder="Message" formControlName="message"></textarea>

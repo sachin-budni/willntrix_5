@@ -54,7 +54,7 @@ export class BlogComponent implements OnInit {
       })
     );
     this.$items.subscribe((blogs: any) => {
-      window.scroll(0, 0);
+      // window.scroll(0, 0);
       this.$blogs = blogs.length !== this.limit ? blogs : blogs.filter((v: any, i: any) => i !== (this.limit - 1));
       this.setNext(blogs.length === this.limit ? blogs[this.limit - 1].date + 5 : undefined);
     });

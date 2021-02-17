@@ -34,4 +34,12 @@ export class ApplyEnquiryComponent implements OnInit {
     }
   }
 
+  getValid(name: any, field: any) {
+    return name!.controls[field.formName].valid;
+  }
+
+  getTouch(name: any, field: any) {
+    return name!.controls[field.formName].touched;
+  }
+
 }
