@@ -18,6 +18,8 @@ import { RegisterFormsComponent } from './register-forms/register-forms.componen
 import { DemoClassComponent } from './demo-class/demo-class.component';
 import { PlacementComponent } from './placement/placement.component';
 import { ReferComponent } from './refer/refer.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { ReferComponent } from './refer/refer.component';
     HttpClientModule,
     FlexLayoutModule,
     QuillModule.forRoot(),
-    NguCarouselModule
+    NguCarouselModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

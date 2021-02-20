@@ -65,17 +65,17 @@
         <a mat-list-item routerLink="about" routerLinkActive="active" (click)="snav.toggle()">About</a>
         <a mat-list-item routerLink="contact" routerLinkActive="active"  (click)="snav.toggle()">Contact Us</a>
         <a mat-list-item routerLink="FAQ" routerLinkActive="active" (click)="snav.toggle()">FAQ's</a>
-        <!-- <a mat-list-item [matMenuTriggerFor]="sideNav" *ngIf="afAuth.auth.currentUser">Student</a> -->
+        <a mat-list-item [matMenuTriggerFor]="sideNav" *ngIf="(currentUser | async)">Student</a>
         <mat-menu #sideNav="matMenu">
           <button mat-menu-item routerLink="student" routerLinkActive="active"  (click)="snav.toggle()">Daily Entry Form</button>
           <button mat-menu-item routerLink="studentregister" routerLinkActive="active" (click)="snav.toggle()">Student Register Form</button>
           <button mat-menu-item routerLink="webinar" routerLinkActive="active" (click)="snav.toggle()">Webinar</button>
         </mat-menu>
-        <!-- <a mat-list-item routerLink="signup" routerLinkActive="active" (click)="snav.toggle()"  *ngIf="!afAuth.auth.currentUser">Sign up</a> -->
-        <!-- <a mat-list-item routerLink="login" routerLinkActive="active" (click)="snav.toggle()" *ngIf="!afAuth.auth.currentUser">Login</a> -->
-        <!-- <a mat-list-item [matMenuTriggerFor]="sideNav1" *ngIf="afAuth.auth.currentUser">Profile</a> -->
+        <a mat-list-item routerLink="signup" routerLinkActive="active" (click)="snav.toggle()"  *ngIf="!(currentUser | async)">Sign up</a>
+        <a mat-list-item routerLink="login" routerLinkActive="active" (click)="snav.toggle()" *ngIf="!(currentUser | async)">Login</a>
+        <a mat-list-item [matMenuTriggerFor]="sideNav1" *ngIf="(currentUser | async)">Profile</a>
         <mat-menu #sideNav1="matMenu">
-          <!-- <button mat-menu-item routerLink="profile" (click)="snav.toggle()" *ngIf="afAuth.auth.currentUser">Hi {{afAuth.auth.currentUser.displayName}}</button> -->
+          <button mat-menu-item routerLink="profile" (click)="snav.toggle()" *ngIf="(currentUser | async)">Hi {{(currentUser | async)?.displayName}}</button>
           <button mat-menu-item (click)="snav.toggle();logOut()">Logout</button>
         </mat-menu>
       </mat-nav-list>

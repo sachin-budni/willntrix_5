@@ -9,6 +9,7 @@ import { AuthService } from './core/auth.service';
 import firebase from 'firebase';
 import { IconSocialMedia } from './core/SocilaIcon';
 import { iconSocialMedia } from './core/util';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,7 @@ export class AppComponent {
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
               private auth: AuthService,
               public dialog: MatDialog,
-              private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
+              private router: Router) {
     this.assetsIcons();
 
     // interval(2000).subscribe(() => {
@@ -56,7 +57,12 @@ export class AppComponent {
     return iconSocialMedia;
   }
   logOut() {
-    return this.auth.logout()
+    this.auth.logout()
+    .then((_: any) => {
+      this.router.navigate(['/']);
+    }).catch((err: any) =>{
+      console.error(err);
+    })
   }
 
   get currentUser(): Observable<firebase.User | null> {

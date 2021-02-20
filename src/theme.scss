@@ -89,3 +89,13 @@ $main-background:#fff;
     margin: 10% auto;
     padding: 0px 10px;
   }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+   }
