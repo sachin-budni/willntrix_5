@@ -26,7 +26,7 @@
               <h2>Recent Posts</h2>
               <mat-card class="example-card1" *ngFor="let posts of recentlyPosts | async">
                 <mat-card-header>
-                  <div mat-card-avatar [style.background-image]="'url('+posts?.titleImage+')'" class="example-header-image">
+                  <div mat-card-avatar [ngStyle]="{'background-image': 'url(' + posts.titleImage + ')'}" class="example-header-image">
                   </div>
                   <mat-card-title class="header" (click)="getBlog(posts.title)" [matTooltip]="posts?.title">{{posts?.title.length>50?posts.title.substring(0,50)+"...":posts.title}}</mat-card-title>
                   <mat-card-subtitle class="sub-header"><span>posted on:</span>{{posts?.date | date:'MMM d, y'}}

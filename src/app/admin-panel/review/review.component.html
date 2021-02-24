@@ -1,0 +1,68 @@
+<div style="padding: 20px;"></div>
+<div class="form-main-div">
+  <div fxLayout="row" fxLayoutAlign="start center" class="back-button">
+    <button mat-icon-button aria-label="Example icon-button with a heart icon" routerLink="/admin-panel">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+  <form [formGroup]="reviewFormGroup" (ngSubmit)="onSubmit(reviewFormGroup.value)">
+    <div *ngFor="let field of formFileds; let i = index">
+      <div *ngIf="i === 3">
+        <div>
+          <input type="file" (change)="addFile($event)" accept="image/*">
+        </div>
+        {{percentage | async}}
+        <mat-progress-bar mode="determinate" [value]="percentage | async"></mat-progress-bar>
+      </div>
+
+      <mat-form-field class="form-element">
+        <input matInput [placeholder]="placeHolder(field)" [formControlName]="formControl(field)">
+        <mat-error *ngIf="validation(reviewFormGroup, field)">
+            {{ "Required" }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field class="form-element">
+      <mat-label>Skills</mat-label>
+      <mat-select formControlName="skills" multiple>
+        <mat-option *ngFor="let skill of $skills | async" [value]="skill">{{skill}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="form-element" fxLayout="row" fxLayoutAlign="end center">
+      <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!reviewFormGroup.valid">Submit Form</button>
+    </div>
+  </form>
+</div>
+
+<div class="card">
+  <div *ngFor="let review of reviews | async" style="padding: 10px;">
+    <mat-card class="example-card">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <mat-slide-toggle checked='{{review.show?"true":"false"}}' (change)="updateReview($event,review.key)">Slide me!</mat-slide-toggle>
+        </div>
+        <div>
+          <button mat-icon-button matTooltip="Edit" (click)="editCard(review)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Delete" (click)="deleteReview(review)">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </div>
+      </div>
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image" [style.background]="'url('+ review.image + ')'"></div>
+        <mat-card-title>{{review.name}}</mat-card-title>
+        <mat-card-subtitle class="sub-title">{{review.desc}}</mat-card-subtitle>
+      </mat-card-header>
+      <ng-container *ngIf="review.videoLink">
+        <div class="video">
+          <iframe [src]="review.videoLink | video">
+          </iframe>
+        </div>
+      </ng-container>
+    </mat-card>
+  </div>
+</div>

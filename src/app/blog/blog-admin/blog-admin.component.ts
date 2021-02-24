@@ -135,7 +135,7 @@ export class BlogAdminComponent implements OnInit {
   }
 
   containValue(item: any, name: string): any {
-    return item.containe(name)
+    return item.contains(name)
   }
 
   drop(event: CdkDragDrop<any>) {

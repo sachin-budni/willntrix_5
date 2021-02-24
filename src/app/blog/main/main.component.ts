@@ -25,6 +25,7 @@ export class MainComponent implements OnInit {
     this.recentlyPosts = this.blogService.getRecentlyPosts.snapshotChanges().pipe(
       map(posts => {
         return posts.map(post => {
+          debugger;
           return { key: post.key, ...post.payload.val() as any };
         });
       })

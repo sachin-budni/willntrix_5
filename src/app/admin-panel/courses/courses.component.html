@@ -1,0 +1,113 @@
+<div style="padding: 40px;"></div>
+
+<div class="main-form-div">
+    <div fxLayout="row" fxLayoutAlign="start center" class="back-button">
+      <button mat-icon-button aria-label="Example icon-button with a heart icon" routerLink="/admin-panel">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </div>
+    <form [formGroup]="courseFormGroup" (ngSubmit)="onSubmit(courseFormGroup.value)">
+      <div *ngFor="let field of formFields; let i=index">
+        <mat-form-field class="form-element">
+          <input matInput [placeholder]="placeHolder(field)" [formControlName]="cotrolerName(field)">
+          <mat-error *ngIf="validation(courseFormGroup, field)">
+              {{ "Required" }}
+          </mat-error>
+        </mat-form-field>
+        <ng-container *ngIf="i === 0">
+          <div fxLayout="row">
+            <div class="file-input">
+              <input type="file" (change)="addFile($event)" accept="image/svg+xml">
+            </div>
+            <p>Course Image Only SVG</p>
+          </div>
+          <p>{{percentage | async}}</p>
+          <mat-progress-bar mode="determinate" [value]="percentage | async"></mat-progress-bar>
+          <ng-container *ngIf="courseImage">
+            <div class="upload-image">
+              <img [src]="courseImage" alt="">
+            </div>
+          </ng-container>
+        </ng-container>
+
+      </div>
+
+      <div class="form-element" fxLayout="row" fxLayoutAlign="end center">
+        <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!courseFormGroup.valid">Submit Form</button>
+      </div>
+    </form>
+</div>
+
+<div class="main3-div">
+  <div class="sub3-div">
+    <div class="card-div" *ngFor="let d of courses | async">
+      <mat-card class="example-card" [id]="d.key">
+        <div fxLayout="row" fxLayoutAlign="end center">
+          <button mat-icon-button matTooltip="Edit" (click)="editCard(d)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="removeCourse(d.key)">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+        <img mat-card-image [src]="d.icon" alt="{{d.name}}">
+        <mat-card-content class="course-content">
+          <span>{{d.name}}</span>
+          <p>SAL: Average {{d.sal}}L</p>
+          <span class="hours">{{d.hour}} Hours</span><br />
+          <button mat-button [routerLink]="[ '/course', d.route ]">Read More</button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+
+<div class="main-form-div">
+  <p class="header">Sylabus Content Edit</p>
+
+  <form [formGroup]="sylabusFormGroup" (ngSubmit)="onSubmitSylabus(sylabusFormGroup.value)">
+
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Course URL Name" formControlName="name">
+      <mat-error *ngIf="!sylabusFormGroup.controls['name'].valid && sylabusFormGroup.controls['name'].touched">
+          {{ "Required" }}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Description" formControlName="description">
+      <mat-error *ngIf="!sylabusFormGroup.controls['description'].valid && sylabusFormGroup.controls['description'].touched">
+          {{ "Required" }}
+      </mat-error>
+    </mat-form-field>
+    <div fxLayout="row">
+      <div class="file-input">
+        <input type="file" (change)="addPDF($event)" accept="application/pdf">
+      </div>
+      <p>Course Sylabus Only PDF File</p>
+    </div>
+    {{pdfPercentage | async}}
+    <mat-progress-bar mode="determinate" [value]="pdfPercentage | async"></mat-progress-bar>
+
+    <div class="file-input">
+      <input type="file" (change)="addJSON($event)" accept="application/JSON">
+      <p>Course Sylabus Only JSON File</p>
+    </div>
+
+    <div class="form-element" fxLayout="row" fxLayoutAlign="end center">
+      <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!sylabusFormGroup.valid">Submit Form</button>
+    </div>
+  </form>
+  <div class="json-data">
+    <pre [innerHTML]="jsonChildren">
+    </pre>
+  </div>
+
+  <div class="row-stand">
+    <div *ngFor="let s of sylabus | async" fxLayout="row" fxLayoutAlign="center center" (click)="getSylabus(s)" [id]="s.key" class="example-ripple-container mat-elevation-z4"
+      matRipple
+      [matRippleCentered]="true">
+      {{s.name}}
+    </div>
+  </div>
+</div>
